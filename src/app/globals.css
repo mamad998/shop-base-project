@@ -3,6 +3,8 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --LI--background: rgba(226, 222, 222, 0.888);
+  --LI--background--hover: rgba(201, 194, 194, 0.601);
 }
 
 @theme inline {
@@ -12,15 +14,36 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+ul {
+  width: 100%;
+}
+li {
+  padding: 5px;
+  margin: 10px;
+  border-radius: 5px;
+  background-color: var(--LI--background);
+  animation: alternate 1s;
+}
+li:hover {
+  background-color: var(--LI--background--hover);
+}
+
+button {
+  padding: 15px;
+  margin-top: 5px;
+  font-family: monospace;
+  size: 10px;
+  cursor: pointer;
+  animation: alternate 1s;
+  background-color: gainsboro;
+  border-radius: 25px;
+}
+button:hover {
+  background-color: #444;
 }
