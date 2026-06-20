@@ -1,6 +1,6 @@
 "use client";
 
-import CartDataProvider from "@/Contexts/CartContext";
+import CartDataProvider from "../Contexts/CartContext";
 import "../app/styles/globals.css";
 import Footer from "./Components/Footer";
 import Header from "./Components/Header";
