@@ -1,4 +1,4 @@
-import ProductList from "./Components/ProductList";
+import ProductList from "./components/ProductList";
 
 export function generateMetadata(){
     return {
