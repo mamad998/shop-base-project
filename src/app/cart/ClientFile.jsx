@@ -1,6 +1,6 @@
 "use client";
 
-import { CartContext } from "@/Contexts/CartContext";
+import { CartContext } from "../../Contexts/CartContext";
 import { useContext } from "react";
 
 export default function ClientFile(){
