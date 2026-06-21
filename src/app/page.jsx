@@ -59,7 +59,7 @@ export default async function Home(){
         }
 
         const data = await response.json();
-        const products = data.products
+        const products = JSON.parse(JSON.stringify(data.products)); 
 
         return(
             <div className="home">
