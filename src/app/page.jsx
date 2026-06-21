@@ -1,4 +1,3 @@
-export const dynamic = 'force-dynamic';
 import ProductList from "../components/ProductList";
 
 export function generateMetadata(){
@@ -13,7 +12,7 @@ export function generateMetadata(){
 }
 
 export default async function Home(){
-    let response = await fetch("https://fakestoreapi.com/products/");
+    let response = await fetch("https://fakestoreapi.com/products");
     let products = await response.json();
 
     return(
