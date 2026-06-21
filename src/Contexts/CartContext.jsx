@@ -10,17 +10,30 @@ export default function CartDataProvider({children}){
 
     useEffect(
         ()=>{
-        const cartLocal = JSON.parse(localStorage.getItem("cart"))
-
+       try{
+        if(typeof window === undefined) return;
+        //  const cartLocal = JSON.parse(localStorage.getItem("cart"))
+         const cartLocal = window.localStorage.getItem("cart")
         if(cartLocal){
-            setCart(cartLocal)
+            const parsed = JSON.parse(cartLocal)
+            if(Array.isArray(parsed)){
+                setCart(parsed)
+            }
         }
+       }catch(e){
+        console.error("خطا در خواندن سبد از حافظهٔ مرورگر", e);
+       }
         }
     ,[])
 
     useEffect(
         ()=>{
-        localStorage.setItem("cart",JSON.stringify(cart))
+            try{
+                if(typeof window === undefined)return;       
+                window.localStorage.setItem("cart",JSON.stringify(cart))
+            }catch(e){
+        console.error("خطا در ذخیرهٔ سبد در حافظهٔ مرورگر", e);
+            }
         }
     ,[cart])
 
