@@ -51,8 +51,7 @@ export async function generateMetadata({ params }) {
         // اگر پاسخ سرور موفق نبود، متادیتا پیش‌فرض برگردان
         if (!res.ok) return { title: "Product Not Found" };
 
-         const data = await response.json();
-        const product = data.products;
+        const product = await res.json();
 
         return {
             title: product.title,
@@ -78,8 +77,7 @@ export default async function ProductDetail({ params }) {
         return notFound(); // کاربر را به صفحه ۴۰۴ هدایت کن
     }
 
-     const data = await response.json();
-        const product = data.products;
+    const product = await response.json();
 
     return (
         <div className="product-detail">
