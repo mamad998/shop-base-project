@@ -1,5 +1,5 @@
 export const dynamic = 'force-dynamic';
-import ProductList from "./components/ProductList";
+import ProductList from "../components/ProductList";
 
 export function generateMetadata(){
     return {
