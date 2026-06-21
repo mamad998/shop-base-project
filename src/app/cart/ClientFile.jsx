@@ -14,7 +14,7 @@ export default function ClientFile(){
                 :cart.map(
                     (product)=>(
                         <div key={product.id}>
-                            <img src={product.image} alt="photo"/>
+                            <img src={product.images[0]} alt="photo"/>
                             <div>
                                 <h2>{product.title}</h2>
                                 <p>${product.price}</p>

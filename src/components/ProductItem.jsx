@@ -10,7 +10,7 @@ let {addToCart} = useContext(CartContext);
 
     return(
         <div className="product-item">
-            <img src={product.image} />
+            <img src={product.images[0]} />
             <h2>{product.title}</h2>
             <p>${product.price} </p>
             <button onClick={()=>{

@@ -39,7 +39,7 @@ export function generateMetadata(){
 
 export default async function Home(){
     try {
-        const response = await fetch("https://fakestoreapi.com/products", { 
+        const response = await fetch("https://dummyjson.com/products", { 
             next: { revalidate: 3600 },// هر یک ساعت یکبار دیتا را تازه کن (به جای force-dynamic)
             headers:{
                 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
@@ -58,7 +58,8 @@ export default async function Home(){
             );
         }
 
-        const products = await response.json();
+        const data = await response.json();
+        const products = data.products;
 
         return(
             <div className="home">

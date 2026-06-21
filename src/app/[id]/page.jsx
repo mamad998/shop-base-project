@@ -46,12 +46,13 @@ export async function generateMetadata({ params }) {
     const { id } = await params;
 
     try {
-        const res = await fetch(`https://fakestoreapi.com/products/${id}`);
+        const res = await fetch(`https://dummyjson.com/products/${id}`);
 
         // اگر پاسخ سرور موفق نبود، متادیتا پیش‌فرض برگردان
         if (!res.ok) return { title: "Product Not Found" };
 
-        const product = await res.json();
+         const data = await response.json();
+        const product = data.products;
 
         return {
             title: product.title,
@@ -59,7 +60,7 @@ export async function generateMetadata({ params }) {
             openGraph: {
                 title: product.title,
                 description: product.description,
-                images: [product.image], // لیست عکس‌ها به صورت آرایه
+                images: [product.images[0]], // لیست عکس‌ها به صورت آرایه
             }
         };
     } catch (error) {
@@ -70,18 +71,19 @@ export async function generateMetadata({ params }) {
 export default async function ProductDetail({ params }) {
     const { id } = await params;
 
-    const response = await fetch(`https://fakestoreapi.com/products/${id}`);
+    const response = await fetch(`https://dummyjson.com/products/${id}`);
 
     // ✅ بسیار مهم: اگر محصول وجود نداشت یا API قطع بود
     if (!response.ok) {
         return notFound(); // کاربر را به صفحه ۴۰۴ هدایت کن
     }
 
-    const product = await response.json();
+     const data = await response.json();
+        const product = data.products;
 
     return (
         <div className="product-detail">
-            <img src={product.image} alt={product.title} />
+            <img src={product.images[0]} alt={product.title} />
             <h2>{product.title}</h2>
             <h4>{product.description}</h4>
             {/ استفاده از Optional Chaining برای جلوگیری از ارور اگر rating وجود نداشت /}
